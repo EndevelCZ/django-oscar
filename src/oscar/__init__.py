@@ -64,6 +64,9 @@ OSCAR_CORE_APPS = [
     'treebeard',
     'sorl.thumbnail',
     'django_tables2',
+    # custom apps
+    'oscar.apps.custom',
+    'oscar.apps.custom.catalogue',
 ]
 
 

@@ -1,6 +1,7 @@
 from django import forms
 from django.core import exceptions
 from django.utils.translation import gettext_lazy as _
+from oscar.apps.custom.catalogue import custom_attributes
 from treebeard.forms import movenodeform_factory
 
 from oscar.core.loading import get_class, get_model
@@ -256,7 +257,8 @@ class ProductForm(forms.ModelForm):
         """
         Gets the correct form field for a given attribute type.
         """
-        return self.FIELD_FACTORIES[attribute.type](attribute)
+        custom_field = custom_attributes.get_attribute_field(attribute)
+        return self.FIELD_FACTORIES[attribute.type](attribute) if custom_field is None else custom_field
 
     def delete_non_child_fields(self):
         """

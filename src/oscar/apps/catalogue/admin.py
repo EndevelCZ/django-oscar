@@ -2,7 +2,7 @@ from django.contrib import admin
 from treebeard.admin import TreeAdmin
 from treebeard.forms import movenodeform_factory
 
-from oscar.core.loading import get_model
+from oscar.core.loading import get_model, get_class
 
 AttributeOption = get_model('catalogue', 'AttributeOption')
 AttributeOptionGroup = get_model('catalogue', 'AttributeOptionGroup')
@@ -15,6 +15,7 @@ ProductCategory = get_model('catalogue', 'ProductCategory')
 ProductClass = get_model('catalogue', 'ProductClass')
 ProductImage = get_model('catalogue', 'ProductImage')
 ProductRecommendation = get_model('catalogue', 'ProductRecommendation')
+ColorChoice = get_model('custom_catalogue', 'ColorChoice')
 
 
 class AttributeInline(admin.TabularInline):

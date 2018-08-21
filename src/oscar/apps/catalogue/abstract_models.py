@@ -1191,3 +1191,7 @@ class AbstractProductImage(models.Model):
         for idx, image in enumerate(self.product.images.all()):
             image.display_order = idx
             image.save()
+
+    @property
+    def thumbnail(self):
+        return self.original
